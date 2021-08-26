@@ -72,8 +72,27 @@ class ImageController extends Controller
                     'album_id' => $id,
                 ]);
             }
-
-            return back()->with('success', 'Image Add Successfully');
         }
+        return back()->with('success', 'Image Add Successfully');
+    }
+
+    public function addAlbunImage(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'image' => 'required'
+            ]
+        );
+
+        $albumId = $request->id;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = $file->store('uploads', 'public');
+            Album::where('id', $albumId)->update([
+                'image' => $path,
+            ]);
+        }
+        return back()->with('success', 'Album Image Add Successfully');
     }
 }

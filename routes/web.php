@@ -24,5 +24,6 @@ Route::prefix('album')->middleware(['auth'])->group(function () {
     Route::get('/', [ImageController::class, 'index'])->name('album.index');
     Route::post('/', [ImageController::class, 'store'])->name('album.store');
     Route::post('/image', [ImageController::class, 'addmore'])->name('album.addmore');
+    Route::post('/image/add', [ImageController::class, 'addAlbunImage'])->name('add.album.image');
     Route::delete('/{id}', [ImageController::class, 'destory'])->name('album.destory');
 });
