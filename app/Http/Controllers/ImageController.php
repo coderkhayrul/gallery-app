@@ -60,4 +60,20 @@ class ImageController extends Controller
 
         return back()->with('success', 'Image Delete Successfully');
     }
+
+    public function addmore(Request $request)
+    {
+        $id = $request->id;
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
+                $path = $image->store('uploads', 'public');
+                Image::create([
+                    'name' => $path,
+                    'album_id' => $id,
+                ]);
+            }
+
+            return back()->with('success', 'Image Add Successfully');
+        }
+    }
 }
