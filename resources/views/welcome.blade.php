@@ -4,6 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
+            @if (Auth::check())
+            <a href="{{ route('album.index') }}" class="btn btn-primary">Create Album</a>
+            @endif
             @if(Session::has('success'))
             <div class="alert alert-success">
                 {{ Session::get('success'); }}
@@ -14,10 +17,11 @@
                 <div class="col-sm-4">
                     <div class="item">
                         <a href="{{ url('album/').'/'.$album->id }}">
-                            <img src="{{ !empty($album->image) ? asset('storage/'.$album->image) : asset('storage/uploads/sidebar-banner-2.jpg') }}" class="img-thumbnail" alt="">
+                            <img style="width:285px; height: 185px;" src="{{ !empty($album->image) ? asset('storage/'.$album->image) : asset('storage/uploads/sidebar-banner-2.jpg') }}" class="img-thumbnail" alt="">
                             <a href="{{ url('album/').'/'.$album->id }}" class="centered">{{ $album->name }}</a>
                         </a>
                     </div>
+                    @if (Auth::check())
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{ $album->id }}">
                         Add Album Image
@@ -49,6 +53,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
 
                 </div>
                 @endforeach

@@ -6,7 +6,9 @@
         <div class="col-md-8">
 
             <div class="card">
+                @if (Auth::check())
                 <div class="card-header bg-primary text-white">Image Add</div>
+                @endif
 
                 <div class="card-body">
                     <div class="show">

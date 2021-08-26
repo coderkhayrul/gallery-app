@@ -1,3 +1,4 @@
+@if (Auth::check())
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
 data-target="#exampleModal">
@@ -63,3 +64,4 @@ aria-hidden="true">
 
 </script>
 @endsection
+@endif
