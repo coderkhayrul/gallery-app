@@ -24,7 +24,7 @@
                             <input type="file" name="image[]" class="form-control" id="image">
                             <div class="input-group-btn">
                                 <button class="btn btn-success btn-add-more" type="button"><i
-                                        class="fas fa-plus"></i></button>
+                                        class="fas fa-plus"></i>Add</button>
                             </div>
                         </div>
                         <div class="copy" style="display:none">
@@ -32,7 +32,7 @@
                                 <input type="file" name="image[]" class="form-control" id="image">
                                 <div class="input-group-btn">
                                     <button class="btn btn-danger remove" type="button"><i
-                                            class="fas fa-minus-circle"></i></button>
+                                            class="fas fa-minus-circle"></i>Remove</button>
                                 </div>
                             </div>
                         </div>
