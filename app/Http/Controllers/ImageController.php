@@ -10,7 +10,7 @@ class ImageController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['only' => ['index', 'addImage']]);
+        $this->middleware('admin', ['only' => ['index', 'addImage']]);
     }
 
 
